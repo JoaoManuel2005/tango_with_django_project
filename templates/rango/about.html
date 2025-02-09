@@ -1,0 +1,15 @@
+{% extends "rango/index.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <h2>here is the about page.</h2>
+    <p>This tutorial has been put together by <strong>Your Name</strong>.</p>
+
+    <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
+
+    <img src="/media/cat.jpg" alt="Picture of a Cat" />
+
+    <br>
+    <a href="{% url 'rango:index' %}">Back to Index</a>
+{% endblock %}
