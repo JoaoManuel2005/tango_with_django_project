@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h1>Add a Page</h1>
+{% extends 'rango/base.html' %}
 
-        {% if category %}
-            <h2>Category: {{ category.name }}</h2>
-        {% endif %}
+{% block title_block %}
+    Add a Page
+{% endblock %}
 
-        <form method="post" action="{% url 'rango:add_page' category_name_slug=category.slug %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Add Page</button>
-        </form>
-    </body>
-</html>
+{% block body_block %}
+    <h1>Add a Page</h1>
+
+    {% if category %}
+        <h2>Category: {{ category.name }}</h2>
+    {% endif %}
+
+    <form method="post" action="{% url 'rango:add_page' category_name_slug=category.slug %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Page</button>
+    </form>
+{% endblock %}
