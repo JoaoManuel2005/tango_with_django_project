@@ -7,7 +7,13 @@
 
 {% block body_block %}
     <h1>Rango says...</h1>
-    <p>Hey there partner!</p>
+
+    {% if user.is_authenticated %}
+        howdy {{ user.username }}!
+    {% else %}
+        hey there partner!
+    {% endif %}
+
     <strong>{{ boldmessage }}</strong>
 
     <h2>Most Liked Categories</h2>
@@ -34,6 +40,5 @@
         <strong>There are no pages present.</strong>
     {% endif %}
 
-    <a href="{% url 'rango:add_category' %}">Add a New Category</a>
     <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango">
 {% endblock %}
